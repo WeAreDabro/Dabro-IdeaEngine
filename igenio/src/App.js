@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import axios from 'axios';
+import
+// import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+    constructor() {
+      super();
+      this.state = {
+        apiData: [],
+
+      }
+    }
   render() {
     return (
       <div className="App">
