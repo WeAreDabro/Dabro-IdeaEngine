@@ -3,6 +3,7 @@
 DROP TABLE IF EXISTS ideas;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS categories;
+DROP TABLE IF EXISTS favorite_tweets;
 
 CREATE TABLE users (
   user_id SERIAL PRIMARY KEY,
@@ -21,4 +22,10 @@ CREATE TABLE ideas (
 CREATE TABLE categories (
   id SERIAL PRIMARY KEY,
   title VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE favorite_tweets (
+  id SERIAL PRIMARY KEY,
+  tweet_user VARCHAR(255) NOT NULL,
+  tweet_content TEXT NOT NULL
 );
