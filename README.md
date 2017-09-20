@@ -28,7 +28,7 @@ A couple of paragraphs about the general approach you took
 
 ## Wire Frames
 
-![wireFrames](igenioWireFrames.jpg)
+![wireFrames](./igenioWireframes.jpg)
 
 ## Challenges
 
