@@ -1,0 +1,29 @@
+{
+  "name": "Dabro-IdeaEngine",
+  "version": "1.0.0",
+  "description": "General Assembly WDI NYC - Project 3. Darren, Gaby and Aemiro",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "method-override": "^2.3.9",
+    "morgan": "^1.8.2",
+    "pg-promise": "^6.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WeAreDabro/Dabro-IdeaEngine.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WeAreDabro/Dabro-IdeaEngine/issues"
+  },
+  "homepage": "https://github.com/WeAreDabro/Dabro-IdeaEngine#readme"
+}
