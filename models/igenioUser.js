@@ -17,10 +17,10 @@ User.findById = (id) => {
 User.create = (user) => {
   return dbu.one(
     `
-    INSERT INTO users (user_id, username, email, passport)
-    VALUES ($1, $2, $3, $4),
+    INSERT INTO users (username, email, password)
+    VALUES ($1, $2, $3),
     RETURNING *`,
-    [user.username, user.email, user.passport],
+    [user.username, user.email, user.password],
   );
 };
 

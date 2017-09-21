@@ -12,34 +12,38 @@ const app = express();
 // acquiring PORT & selecting the environment
 const PORT = process.env.PORT || 3000;
 
-
-// setting the views
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine');
-
 // logging the dependencies
+// setting up logger
 app.use(logger('dev'));
 app.use(methodOverride('_method'));
+
+// setting up body-parser
 app.use(bodyParser.urlencoded({
   extended: false,
 }));
 app.use(bodyParser.json());
+
+// setting up static files
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(methodOverride('_method'));
 
 // setting the routes & request handlers
 app.get('/', (req, res) => {
-  res.render('index', {
-    message: 'welcome',
+  res.json({
+    message: 'Welcome to Igenio',
   });
 });
 
-const igenioRouter = require('./routes/igenio-route');
+// Igenio API routes to use when needed
+// currently commented out to avoid errors
+// const igenioRouter = require('./routes/igenio-route');
+// app.use('/api/igenio', igenioRouter);
 
-// base route to access all the others
-app.use('/home', igenioRouter);
+// error handling
+app.get('*', function(req, res) {
+  res.status(404).send({ message: 'Not Found' });
+});
 
-// Listener on PORT
+// Listening on PORT
 app.listen(PORT, () => {
   console.log(`Server up and listening on port ${PORT}, in ${app.get('env')} mode.`);
 });
