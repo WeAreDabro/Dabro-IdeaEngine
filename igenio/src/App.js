@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import registerForm from './components/RegisterForm';
+import RegisterForm from './components/RegisterForm';
 // import logo from './logo.svg';
 import './App.css';
 
@@ -23,7 +23,7 @@ class App extends Component {
       console.log("compontent mounted")
     }
 
-    handleRegisterInput(e) {
+    handleInput(e) {
       let name = e.target.name;
       let value = e.target.value;
       this.setState({
@@ -34,8 +34,10 @@ class App extends Component {
     onSubmitRegister(e) {
       e.preventDefault();
       console.log(this.state)
-      axios.post('http://localhost:3001/api/AEMIRO', {
-      /*form? */: this.state./*fields? */
+      axios.post('/api/AEMIRO', {
+      registerEmail: this.state.registerEmail
+      registerUserName: this.state.registerUserName
+      registerPassword: this.state.registerPassword
     }
 
 
@@ -47,17 +49,25 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
+        <Header />
+        <Home />
+        <Home-2 />
+
+          Route path="/register" compontent="RegisterForm"
+
           <RegisterForm
             registerEmail={this.registerEmail}
             registerUserName={this.registerUserName}
             registerPassword={this.registerPassword}
             onSubmitRegister={this.onSubmitRegister}
             />
+
           <LoginForm
             loginuserName={this.loginUserName}
             loginPassword={this.loginPassword}
             onSubmitRegister={this.onSubmitRegister}
             />
+        <Footer />
       </div>
     );
   }

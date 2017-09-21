@@ -3,24 +3,26 @@ import React, { Component } from 'react';
 class LoginForm extends Component{
   render(){
     return (
-      <from className="login-form">
+      <a href="/auth/Twitter"><button>Login With Twitter</button></a>
+      <form onSubmit={this.onSubmitRegister} className="login-form">
            <input
-           name = "loginUserName"
-          type = "text"
-          placeholder = "Your Username"
-          value = {this.props.loginUserName}
-          onChange = {this.props.handleRegisterInput}
+           name="loginUserName"
+          type="text"
+          placeholder="Your Username"
+          value={this.props.loginUserName}
+          onChange={this.props.handleInput}
           />
       <br />
            <input
-           name= "loginPassword"
-          type = "password"
-          placeholder = "Your Password"
-          value = {this.props.loginPassword}
-          onChange = {this.props.handleRegisterInput}
+           name="loginPassword"
+          type="password"
+          placeholder="Your Password"
+          value={this.props.loginPassword}
+          onChange={this.props.handleInput}
           />
       <br />
-         <button onClick={this.onSubmitRegister}>Submit</button>
+         <button type="submit">Submit</button>
+      </form>
       )
   }
 }
