@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Route, Switch, Redirect} from 'react-router-dom';
+import Home from '.components/'
 import RegisterForm from './components/RegisterForm';
 // import logo from './logo.svg';
 import './App.css';
@@ -50,10 +52,18 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <Header />
-        <Home />
-        <Home-2 />
+           <Switch>
+              <Route path="/register" component={RegisterForm} />
+              <Route path="/login" component={LoginForm} />
+              <Route path="/profile" component={UserProfile} />
+              <Route path="/single-idea" component={SingleIdea} />
+              <Route path="/single-tweet" component={SingleTweet} />
+              <Route path="/" component={Home} />
+              <Route path="/home-2" component={auth(Home-2)} />
 
-          Route path="/register" compontent="RegisterForm"
+              <Redirect to="/" />
+            </Switch>
+
 
           <RegisterForm
             registerEmail={this.registerEmail}
@@ -67,7 +77,6 @@ class App extends Component {
             loginPassword={this.loginPassword}
             onSubmitRegister={this.onSubmitRegister}
             />
-        <Footer />
       </div>
     );
   }
