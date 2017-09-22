@@ -11,10 +11,20 @@ class RegisterForm extends Component{
       registerUserName: '',
       registerPassword: '',
     };
+    this.handleInput=this.handleInput.bind(this);
+    this.onSubmitRegister=this.onSubmitRegister.bind(this);
   }
 
   componentDidMount() {
     console.log('compontent mounted');
+  }
+
+    handleInput(e) {
+    const name = e.target.name;
+    const value = e.target.value;
+    this.setState({
+      [name]: value,
+    });
   }
 
   onSubmitRegister(e) {
@@ -25,15 +35,9 @@ class RegisterForm extends Component{
       registerUserName: this.state.registerUserName,
       registerPassword: this.state.registerPassword,
     });
+    console.log(this.registerEmail + " " + this.registerUserName + " " + this.registerPassword)
   }
 
-  handleInput(e) {
-    const name = e.target.name;
-    const value = e.target.value;
-    this.setState({
-      [name]: value,
-    });
-  }
 
   render() {
     return (

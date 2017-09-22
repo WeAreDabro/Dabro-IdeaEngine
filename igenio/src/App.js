@@ -4,7 +4,7 @@ import Home from './components/Home';
 import RegisterForm from './components/RegisterForm';
 import Header from './components/partials/Header';
 import LoginForm from './components/LoginForm';
-import Footer from './partials/Footer';
+import Footer from './components/partials/Footer';
 // import logo from './logo.svg';
 import './App.css';
 
@@ -14,12 +14,12 @@ class App extends Component {
       <div>
         <Header />
         <Switch>
-          <Route path="/register" component={RegisterForm} />
-          <Route path="/login" component={LoginForm} />
+          <Route exact path="/register" component={RegisterForm} />
+          <Route exact path="/login" component={LoginForm} />
           { /* <Route path="/single-idea" component={SingleIdea} /> */ }
           { /* <Route path="/single-tweet" component={SingleTweet} /> */ }
           <Route path="/" component={Home} />
-          {/* <Route path="/home-2" component={auth(Home_2)} /> */}
+          { /* <Route path="/home-2" component={Auth(Home, Home2)} /> */ }
 
           <Redirect to="/" />
         </Switch>
