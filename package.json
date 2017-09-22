@@ -29,10 +29,12 @@
   },
   "dependencies": {
     "body-parser": "^1.18.1",
+    "cors": "^2.8.4",
     "express": "^4.15.4",
     "express-session": "^1.15.5",
     "method-override": "^2.3.9",
     "morgan": "^1.8.2",
-    "pg-promise": "^6.8.0"
+    "pg-promise": "^6.8.0",
+    "twit": "^2.2.9"
   }
 }
