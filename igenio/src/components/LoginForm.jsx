@@ -1,22 +1,21 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
 
-class LoginForm extends Component{
-    constructor() {
+class LoginForm extends Component {
+  constructor() {
     super();
-    this.state = {
-      apiData: [],
-      isLoggedIn: false,
 
+    this.state = {
       loginUserName: '',
       loginPassword: '',
     };
+
     this.handleInput = this.handleInput.bind(this);
     this.onSubmitLogin = this.onSubmitLogin.bind(this);
   }
 
   componentDidMount() {
-    console.log('compontent mounted');
+    console.log('component mounted');
   }
 
   onSubmitLogin(e) {
@@ -31,6 +30,7 @@ class LoginForm extends Component{
   handleInput(e) {
     const name = e.target.name;
     const value = e.target.value;
+
     this.setState({
       [name]: value,
     });
@@ -39,8 +39,7 @@ class LoginForm extends Component{
   render() {
     return (
       <div>
-        <button><a href="/login"> Login With Twitter</a></button>
-
+        <button><a href="/auth/twitter"> Login With Twitter</a></button>
         <form onSubmit={this.onSubmitLogin} className="login-form">
           <input
             name="loginUserName"

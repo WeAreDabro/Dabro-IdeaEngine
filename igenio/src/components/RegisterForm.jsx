@@ -1,27 +1,28 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
 
-class RegisterForm extends Component{
+class RegisterForm extends Component {
   constructor() {
     super();
+
     this.state = {
-      apiData: [],
-      isLoggedIn: false,
       registerEmail: '',
       registerUserName: '',
       registerPassword: '',
     };
-    this.handleInput=this.handleInput.bind(this);
-    this.onSubmitRegister=this.onSubmitRegister.bind(this);
+
+    this.handleInput = this.handleInput.bind(this);
+    this.onSubmitRegister = this.onSubmitRegister.bind(this);
   }
 
   componentDidMount() {
-    console.log('compontent mounted');
+    console.log('component mounted');
   }
 
-    handleInput(e) {
-    const name = e.target.name;
+  handleInput(e) {
+    const name  = e.target.name;
     const value = e.target.value;
+
     this.setState({
       [name]: value,
     });
@@ -64,7 +65,7 @@ class RegisterForm extends Component{
             name="registerPassword"
             type="password"
             placeholder="Your Password"
-            value={this.state.registerpassword}
+            value={this.state.registerPassword}
             onChange={this.handleInput}
           />
           <br />
