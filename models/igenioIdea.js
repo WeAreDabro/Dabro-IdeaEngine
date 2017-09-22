@@ -1,5 +1,7 @@
 // configuration of igenio's main database
 // it allows users to create, read, update & delete ideas
+// IdeaModel to maintain the idea database
+
 const dbi = require('../config/configdb');
 
 // setting user selection happening in the ideas table

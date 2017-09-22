@@ -3,6 +3,8 @@ const Ideas = require('../models/igenioIdea');
 
 const igenioController = {};
 
+// setting up the controller which handles
+// all the requests made by the user
 igenioController.index = (req, res) => {
   Ideas.findAll ()
     .then(ideas => {
