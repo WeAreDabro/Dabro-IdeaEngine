@@ -6,6 +6,7 @@ class Home extends Component {
     return (
       <div>
         <button><Link to="/register">Register</Link></button>
+        <p>Or just <Link to="/login">Login Here</Link></p>
       </div>
     );
   }

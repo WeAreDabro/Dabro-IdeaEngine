@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
+
 class LoginForm extends Component{
     constructor() {
     super();
@@ -10,19 +11,21 @@ class LoginForm extends Component{
       loginUserName: '',
       loginPassword: '',
     };
+    this.handleInput = this.handleInput.bind(this);
+    this.onSubmitLogin = this.onSubmitLogin.bind(this);
   }
 
   componentDidMount() {
     console.log('compontent mounted');
   }
 
-  onSubmitRegister(e) {
+  onSubmitLogin(e) {
     e.preventDefault();
     console.log(this.state);
-    axios.post('/api/AEMIRO', {
+    {/* axios.get('/api/AEMIRO', {
       loginUserName: this.state.loginUserName,
       loginPassword: this.state.loginPassword,
-    });
+    }); */}
   }
 
   handleInput(e) {
@@ -33,32 +36,32 @@ class LoginForm extends Component{
     });
   }
 
-  render(){
+  render() {
     return (
       <div>
-      <a href="/auth/Twitter"><button>Login With Twitter</button></a>
+        <button><a href="/login"> Login With Twitter</a></button>
 
-      <form onSubmit={this.onSubmitRegister} className="login-form">
-           <input
-           name="loginUserName"
-           type="text"
-           placeholder="Your Username"
-           value={this.state.loginUserName}
-           onChange={this.handleInput}
+        <form onSubmit={this.onSubmitLogin} className="login-form">
+          <input
+            name="loginUserName"
+            type="text"
+            placeholder="Your Username"
+            value={this.state.loginUserName}
+            onChange={this.handleInput}
           />
-      <br />
-           <input
-           name="loginPassword"
-          type="password"
-          placeholder="Your Password"
-          value={this.props.loginPassword}
-          onChange={this.props.handleInput}
+          <br />
+          <input
+            name="loginPassword"
+            type="password"
+            placeholder="Your Password"
+            value={this.state.loginPassword}
+            onChange={this.handleInput}
           />
-      <br />
-         <button type="submit">Submit</button>
-      </form>
+          <br />
+          <button type="submit">Submit</button>
+        </form>
       </div>
-      )
+    );
   }
 }
 

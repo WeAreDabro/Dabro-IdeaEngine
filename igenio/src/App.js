@@ -25,21 +25,6 @@ class App extends Component {
           <Redirect to="/" />
         </Switch>
         <Footer />
-
-
-        {/* <RegisterForm
-          registerEmail={this.registerEmail}
-          registerUserName={this.registerUserName}
-          registerPassword={this.registerPassword}
-          onSubmitRegister={this.onSubmitRegister}
-        /> */}
-
-        {/* <LoginForm
-          loginuserName={this.loginUserName}
-          loginPassword={this.loginPassword}
-          onSubmitRegister={this.onSubmitRegister}
-        /> */}
-
       </div>
     );
   }

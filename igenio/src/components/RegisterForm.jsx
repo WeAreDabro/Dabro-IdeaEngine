@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 
 class RegisterForm extends Component{
   constructor() {
@@ -30,12 +30,12 @@ class RegisterForm extends Component{
   onSubmitRegister(e) {
     e.preventDefault();
     console.log(this.state);
-    axios.post('/api/AEMIRO', {
+
+    {/* axios.post('/api/AEMIRO', {
       registerEmail: this.state.registerEmail,
       registerUserName: this.state.registerUserName,
       registerPassword: this.state.registerPassword,
-    });
-    console.log(this.registerEmail + " " + this.registerUserName + " " + this.registerPassword)
+    }); */}
   }
 
 
