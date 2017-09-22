@@ -1,47 +1,47 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {Route, Switch, Redirect} from 'react-router-dom';
-import Home from '.components/'
+import { Route, Switch, Redirect } from 'react-router-dom';
+import Home from './components/Home';
 import RegisterForm from './components/RegisterForm';
 // import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-    constructor() {
-      super();
-      this.state = {
-        apiData: [],
-        isLoggedIn: false
-        registerEmail: ''
-        registerUserName: ''
-        registerPassword: ''
+  constructor() {
+    super();
+    this.state = {
+      apiData: [],
+      isLoggedIn: false,
+      registerEmail: '',
+      registerUserName: '',
+      registerPassword: '',
 
-        loginUserName: ''
-        loginPassword: ''
-      }
-    }
+      loginUserName: '',
+      loginPassword: '',
+    };
+  }
 
-    componentDidmount() {
-      console.log("compontent mounted")
-    }
+  componentDidMount() {
+    console.log("compontent mounted");
+  }
 
-    handleInput(e) {
-      let name = e.target.name;
-      let value = e.target.value;
-      this.setState({
-        [name]: value
-      })
-    }
+  handleInput(e) {
+    const name = e.target.name;
+    const value = e.target.value;
+    this.setState({
+      [name]: value,
+    });
+  }
 
-    onSubmitRegister(e) {
-      e.preventDefault();
-      console.log(this.state)
-      axios.post('/api/AEMIRO', {
-      registerEmail: this.state.registerEmail
-      registerUserName: this.state.registerUserName
-      registerPassword: this.state.registerPassword
-    }
-
+  onSubmitRegister(e) {
+    e.preventDefault();
+    console.log(this.state);
+    axios.post('/api/AEMIRO', {
+      registerEmail: this.state.registerEmail,
+      registerUserName: this.state.registerUserName,
+      registerPassword: this.state.registerPassword,
+    });
+  }
 
 
   render() {
@@ -52,31 +52,31 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <Header />
-           <Switch>
-              <Route path="/register" component={RegisterForm} />
-              <Route path="/login" component={LoginForm} />
-              <Route path="/profile" component={UserProfile} />
-              <Route path="/single-idea" component={SingleIdea} />
-              <Route path="/single-tweet" component={SingleTweet} />
-              <Route path="/" component={Home} />
-              <Route path="/home-2" component={auth(Home-2)} />
+        <Switch>
+          <Route path="/register" component={RegisterForm} />
+          <Route path="/login" component={LoginForm} />
+          <Route path="/profile" component={UserProfile} />
+          <Route path="/single-idea" component={SingleIdea} />
+          <Route path="/single-tweet" component={SingleTweet} />
+          <Route path="/" component={Home} />
+          <Route path="/home-2" component={auth(Home_2)} />
 
-              <Redirect to="/" />
-            </Switch>
+          <Redirect to="/" />
+        </Switch>
 
 
-          <RegisterForm
-            registerEmail={this.registerEmail}
-            registerUserName={this.registerUserName}
-            registerPassword={this.registerPassword}
-            onSubmitRegister={this.onSubmitRegister}
-            />
+        {/*<RegisterForm
+          registerEmail={this.registerEmail}
+          registerUserName={this.registerUserName}
+          registerPassword={this.registerPassword}
+          onSubmitRegister={this.onSubmitRegister}
+        />*/}
 
-          <LoginForm
-            loginuserName={this.loginUserName}
-            loginPassword={this.loginPassword}
-            onSubmitRegister={this.onSubmitRegister}
-            />
+        {/*<LoginForm
+          loginuserName={this.loginUserName}
+          loginPassword={this.loginPassword}
+          onSubmitRegister={this.onSubmitRegister}
+        />*/}
       </div>
     );
   }

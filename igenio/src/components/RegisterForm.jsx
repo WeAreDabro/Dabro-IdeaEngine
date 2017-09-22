@@ -5,6 +5,7 @@ class RegisterForm extends Component{
 
   render(){
     return (
+      <div>
       <a href="/auth/twitter"><button>Login With Twitter</button></a>
       <form onSubmit={this.onSubmitRegister} className="register-form">
         <input
@@ -33,6 +34,7 @@ class RegisterForm extends Component{
       <br />
          <button type="submit">Submit</button>
       </form>
+      </div>
       )
   }
 }

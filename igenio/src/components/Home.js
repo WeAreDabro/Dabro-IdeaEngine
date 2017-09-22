@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
-import Header from '.components/partials/Header';
+import Header from './components/partials/Header';
 import GuestMain from './components/GuestMain';
 
 class Home extends Component {
 
- cons...super...state
+ // cons...super...state
 
   Render() {
     Return (
-      <Header />
-      <GuestMain />
+      <div>
+        <Header />
 
-      <button><Link to="/register">Home</Link></button>
-
-
+        <GuestMain />
 
 
+        <button><Link to="/register">Home</Link></button>
+      </div>,
 
-      )
+    );
   }
 }
