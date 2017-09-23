@@ -1,32 +1,40 @@
 import React, { Component } from 'react';
-import Twit from 'twit';
-import Config from '../config';
+// import Twit from 'twit';
+// import Config from '../config';
 import axios from 'axios';
 
 class SingleTweet extends Component {
- constructor() {
-  super();
-  this.state = {
-    tweets: []
-  };
- }
+  constructor() {
+    super();
+    this.state = {
+      tweet: '',
+    };
+  }
 
   componentDidMount() {
-    axios.get('/api/tweets')
-    .then(res => {
-      console.log(res.data.statuses)
-    })
+    axios.get('http://localhost:3000/api/twitter')
+      .then((res) => {
+        const tweetArr = res.data.data.statuses;
+        const item = tweetArr[Math.floor(Math.random() * tweetArr.length)];
+        console.log(item.text);
+        this.setState({
+          tweet: item.text,
+        });
+      // console.log(JSON.stringify(res.data.data.statuses[0].text))
+      });
+  }
 
-
-}
+//   shouldComponentUpdate(nextTweet, nextState) {
+//   return nextTweet.tweet !==this.state.tweet;
+// }
 
   render() {
     return (
       <div>
 
-        <h2> thiz is a single tweet from the Twitter Api</h2>
+        <blockquote>{this.state.tweet}</blockquote>
       </div>
-    )
+    );
   }
 }
 

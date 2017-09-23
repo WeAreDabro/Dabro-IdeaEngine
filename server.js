@@ -43,7 +43,7 @@ app.get('/api/twitter', (req, res) => {
     app_only_auth:   true,
   });
 
-  const params = { q: '"someone should make" AND "app" since:2017-01-01', count: 5 };
+  const params = { q: '"somebody should" OR "someone should" AND "app" -"cash app" since:2017-01-01 exclude:replies exclude:retweets', count: 5 };
 
   const tweetData = (err, data, response) => {
     res.json({
