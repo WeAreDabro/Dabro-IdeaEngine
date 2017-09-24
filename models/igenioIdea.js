@@ -27,10 +27,10 @@ Ideas.findById = (id) => {
 // user can create an idea
 Ideas.create = (idea) => {
   return dbi.one(
-    `INSERT INTO ideas
+    `INSERT INTO ideas (idea_content, date_created)
     VALUES ($1, $2)
     RETURNING * `,
-    [idea.id, idea.content],
+    [idea.content, idea.time],
   );
 };
 

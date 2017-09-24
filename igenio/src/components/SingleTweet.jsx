@@ -8,6 +8,7 @@ class SingleTweet extends Component {
     super();
     this.state = {
       tweet: '',
+      screen_name: '',
     };
   }
 
@@ -16,9 +17,10 @@ class SingleTweet extends Component {
       .then((res) => {
         const tweetArr = res.data.data.statuses;
         const item = tweetArr[Math.floor(Math.random() * tweetArr.length)];
-        console.log(item.text);
+        console.log(item);
         this.setState({
           tweet: item.text,
+          screen_name: item.user.screen_name,
         });
       // console.log(JSON.stringify(res.data.data.statuses[0].text))
       });
@@ -32,7 +34,11 @@ class SingleTweet extends Component {
     return (
       <div>
 
-        <blockquote>{this.state.tweet}</blockquote>
+        <blockquote>
+          {this.state.tweet}
+
+        <p> - {this.state.screen_name}</p>
+        </blockquote>
       </div>
     );
   }

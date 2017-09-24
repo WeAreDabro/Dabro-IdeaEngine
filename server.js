@@ -29,6 +29,11 @@ app.use(bodyParser.json());
 // setting up static files
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+const igenioRoutes = require('./routes/igenio-route');
+
+app.use('/api/ideas', igenioRoutes);
+
 // setting the routes & request handlers
 app.get('/', (req, res) => {
   res.json({
@@ -36,14 +41,16 @@ app.get('/', (req, res) => {
   });
 });
 
+
+
 app.get('/api/twitter', (req, res) => {
   const T = new Twit({
-    consumer_key:    'mxSDdMz8vgTupvJpqCuqNXFoZ',
+    consumer_key: 'mxSDdMz8vgTupvJpqCuqNXFoZ',
     consumer_secret: 'wxkc1Ss75FZ0nsnXmNoeCy37PcSHTxmTWDfMcUfFRqBw1smVz7',
-    app_only_auth:   true,
+    app_only_auth: true,
   });
 
-  const params = { q: '"somebody should" OR "someone should" AND "app" -"cash app" since:2017-01-01 exclude:replies exclude:retweets', count: 5 };
+  const params = { q: '"somebody should" OR "someone should" AND "make a" -"liberals" -"snowflakes" -"blocklist" -"account" -"cash app" since:2017-01-01 exclude:replies exclude:retweets', count: 50 };
 
   const tweetData = (err, data, response) => {
     res.json({
@@ -59,8 +66,9 @@ app.get('/api/twitter', (req, res) => {
 // const igenioRouter = require('./routes/igenio-route');
 // app.use('/api/igenio', igenioRouter);
 
+
 // error handling
-app.get('*', function(req, res) {
+app.get('*', (req, res) => {
   res.status(404).send({ message: 'Not Found' });
 });
 
