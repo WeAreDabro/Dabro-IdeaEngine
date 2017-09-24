@@ -3,7 +3,6 @@ import axios from 'axios';
 import tokenService from './tokenService';
 
 export default {
-  // Returns a Promise.
   authenticate(callback) {
     // give token to server and check if the token is valid.
     axios({
@@ -11,8 +10,8 @@ export default {
       method: 'get',
       headers: { Authorization: `Bearer ${tokenService.getToken()}` },
     })
-      .then(user => callback(user))
-      .catch(err => console.log(err));
+      .then(user => callback(null, user))
+      .catch(err => callback(err));
   },
 
   register(user, callback) {
@@ -23,7 +22,7 @@ export default {
       data: user,
     })
       .then((response) => {
-        callback(response);
+        callback(response.data);
       })
       .catch(err => console.log(err));
   },
@@ -36,17 +35,20 @@ export default {
       method: 'post',
       data: user,
     })
-      .then((token) => {
-        tokenService.login(token);
-        callback(token);
+      .then((response) => {
+        tokenService.login(response.data.token);
+        callback(response.data);
       })
       .catch(err => console.log(err));
   },
 
-  logout(callback) {
+  logout(history) {
     // logout user by removing token from localStorage.
-    // and redirect to home page.
+    // and redirect to home page after half a second.
     tokenService.logout();
-    callback();
+
+    setTimeout(() => {
+      history.push('/');
+    }, 500);
   },
 };

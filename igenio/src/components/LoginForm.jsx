@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+// added withRouter to allow redirects with `this.props.history`
+import { withRouter } from 'react-router-dom';
 import authService from '../utils/authService';
 // import axios from 'axios';
 
@@ -32,6 +34,8 @@ class LoginForm extends Component{
 
     const callback = (res) => {
       console.log(res);
+      // redirect to `/single-tweet` page.
+      this.props.history.push('/single-tweet');
     };
 
     authService.login(user, callback);

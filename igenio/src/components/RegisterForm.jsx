@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+// added withRouter to allow redirects with `this.props.history`
+import { withRouter } from 'react-router-dom';
 import authService from '../utils/authService';
 // import axios from 'axios';
 
@@ -40,6 +42,8 @@ class RegisterForm extends Component{
 
     const callback = (res) => {
       console.log(res);
+      // redirect to home page.
+      this.props.history.push('/');
     };
 
     authService.register(user, callback);

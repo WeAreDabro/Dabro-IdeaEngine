@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import authService from '../utils/authService';
 // import Twit from 'twit';
 // import Config from '../config';
 import axios from 'axios';

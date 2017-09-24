@@ -9,6 +9,13 @@ import Footer from './components/partials/Footer';
 // import logo from './logo.svg';
 import './App.css';
 
+// added withRouter to allow redirects with `this.props.history`
+import { withRouter } from 'react-router-dom';
+// Auth component redirects to '/login' if not logged in.
+import Auth from './utils/Auth';
+// imported for logout functionality.
+import authService from './utils/authService';
+
 class App extends Component {
   render() {
     return (
@@ -18,16 +25,18 @@ class App extends Component {
           <Route exact path="/register" component={RegisterForm} />
           <Route exact path="/login" component={LoginForm} />
           { /* <Route path="/single-idea" component={SingleIdea} /> */ }
-          <Route exact path="/single-tweet" component={SingleTweet} />
+          <Route exact path="/single-tweet" component={Auth(SingleTweet)} />
           <Route path="/" component={Home} />
           { /* <Route path="/home-2" component={Auth(Home, Home2)} /> */ }
 
           <Redirect to="/" />
         </Switch>
+        { /* Logout button */ }
+        <button onClick={() => authService.logout(this.props.history)}>logout</button>
         <Footer />
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
