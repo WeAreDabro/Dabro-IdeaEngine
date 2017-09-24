@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import authService from '../utils/authService';
 // import axios from 'axios';
 
 class RegisterForm extends Component{
@@ -31,11 +32,17 @@ class RegisterForm extends Component{
     e.preventDefault();
     console.log(this.state);
 
-    {/* axios.post('/api/AEMIRO', {
-      registerEmail: this.state.registerEmail,
-      registerUserName: this.state.registerUserName,
-      registerPassword: this.state.registerPassword,
-    }); */}
+    const user = {
+      username: this.state.registerUserName,
+      password: this.state.registerPassword,
+      email: this.state.registerEmail,
+    };
+
+    const callback = (res) => {
+      console.log(res);
+    };
+
+    authService.register(user, callback);
   }
 
 

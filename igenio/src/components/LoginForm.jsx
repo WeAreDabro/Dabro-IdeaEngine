@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import authService from '../utils/authService';
 // import axios from 'axios';
 
 class LoginForm extends Component{
@@ -22,10 +23,18 @@ class LoginForm extends Component{
   onSubmitLogin(e) {
     e.preventDefault();
     console.log(this.state);
-    {/* axios.get('/api/AEMIRO', {
-      loginUserName: this.state.loginUserName,
-      loginPassword: this.state.loginPassword,
-    }); */}
+
+    const user = {
+      username: this.state.loginUserName,
+      password: this.state.loginPassword,
+      email: 'email@email.com',
+    };
+
+    const callback = (res) => {
+      console.log(res);
+    };
+
+    authService.login(user, callback);
   }
 
   handleInput(e) {
