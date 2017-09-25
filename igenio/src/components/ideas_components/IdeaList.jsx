@@ -12,7 +12,7 @@ class IdeaList extends Component {
           <Idea
             anIdea={idea}
             key={idea.id}
-            handleDelete={(e) => this.props.handleDelete(idea.id)}
+            handleDelete={(e) => this.props.handleDelete(e, idea.id)}
           />
         )})}
        </div>

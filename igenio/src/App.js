@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Home from './components/Home';
+import Home2 from './components/Home2';
 import RegisterForm from './components/RegisterForm';
 import Header from './components/partials/Header';
 import LoginForm from './components/LoginForm';
@@ -25,9 +26,9 @@ class App extends Component {
           <Route exact path="/register" component={RegisterForm} />
           <Route exact path="/login" component={LoginForm} />
           { /* <Route path="/single-idea" component={SingleIdea} /> */ }
-          <Route exact path="/single-tweet" component={Auth(SingleTweet)} />
-          <Route path="/" component={Home} />
-          { /* <Route path="/home-2" component={Auth(Home, Home2)} /> */ }
+          <Route exact path="/single-tweet" component={SingleTweet} />
+          {/*<Route exact path="/" component={Home} />*/}
+          <Route path="/" component={Auth(Home, Home2)} />
 
           <Redirect to="/" />
         </Switch>

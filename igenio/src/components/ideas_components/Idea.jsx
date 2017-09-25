@@ -11,6 +11,7 @@ class Idea extends Component {
     return (
       <div>
         <span>{this.props.anIdea.idea_content}</span>
+        <button onClick={this.props.handleDelete}>X</button>
       </div>
     );
   }

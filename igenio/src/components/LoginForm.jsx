@@ -35,7 +35,7 @@ class LoginForm extends Component{
     const callback = (res) => {
       console.log(res);
       // redirect to `/single-tweet` page.
-      this.props.history.push('/single-tweet');
+      this.props.history.push('/');
     };
 
     authService.login(user, callback);

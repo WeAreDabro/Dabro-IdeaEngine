@@ -34,11 +34,11 @@ igenioController.show = (req, res) => {
 };
 
 igenioController.create = (req, res) => {
-  console.log(req.body.id);
+  console.log(req.body);
   Ideas.create({
     // id: (req.body.id),
-    content: (req.body.content),
-    time: (req.body.time),
+    user_id: (req.body.user_id),
+    idea_content: (req.body.idea_content),
   })
     .then((idea) => {
       res.json({ message: 'ok', data: { idea } });

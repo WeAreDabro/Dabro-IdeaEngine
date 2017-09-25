@@ -30,7 +30,8 @@ class IdeasTab extends Component {
     // Create a new idea and pass the idea content in the
     // request body.
     axios.post('http://localhost:3000/api/ideas', {
-      idea: this.state.ideaInput,
+      user_id: this.props.user.user_id,
+      idea_content: this.state.ideaInput,
     })
       .then(() => {
         // After the new idea has been made,
