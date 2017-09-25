@@ -10,7 +10,7 @@ export default {
       method: 'get',
       headers: { Authorization: `Bearer ${tokenService.getToken()}` },
     })
-      .then(user => callback(null, user))
+      .then(res => callback(null, res.data.user))
       .catch(err => callback(err));
   },
 

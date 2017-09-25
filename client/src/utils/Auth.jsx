@@ -16,7 +16,7 @@ export default function Auth(Component1, Component2) {
     componentWillMount() {
       // attempt to check if user is logged in.
       authService.authenticate((err, user) => {
-        if (Component1 && !Component2) {
+        if (Component1 && !Component2 || err) {
           this.shouldRedirect(user);
         }
 
