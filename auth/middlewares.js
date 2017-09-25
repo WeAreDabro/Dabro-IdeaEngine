@@ -71,7 +71,9 @@ module.exports.handleLogin = (req, res, next) => {
             }
 
             const payload = {
-              id: user.user_id,
+              user_id: user.user_id,
+              email: user.email,
+              username: user.username,
             };
 
             const token = jwt.sign(payload, authConfig.secret);

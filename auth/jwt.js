@@ -16,13 +16,17 @@ options.jsonWebTokenOptions = {
 
 const jwtStrategy = new Strategy(options, (payload, done) => {
   console.log(payload);
-  const { id } = payload;
+  const { user_id, email, username } = payload;
 
-  return User.findOne('user_id', id)
+  return User.findOne('user_id', user_id)
     .then((user) => {
       if (!user) return done(null, false);
 
-      return done(null, { id: user.user_id });
+      return done(null, {
+        user_id,
+        email,
+        username,
+      });
     })
     .catch((err) => {
       console.error(err);
