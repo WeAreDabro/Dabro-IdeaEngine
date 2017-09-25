@@ -25,13 +25,21 @@ Ideas.findById = (id) => {
 };
 
 // user can create an idea
-Ideas.create = (idea) => {
+/*Ideas.create = (idea) => {
   return dbi.one(
     `INSERT INTO ideas (user_id, idea_content)
     VALUES ($1, $2)
     RETURNING * `,
     [idea.user_id, idea.idea_content],
   );
+};*/
+
+Ideas.create = (idea) => {
+  return dbi.one(
+    `INSERT INTO ideas (user_id, idea_content)
+    VALUES ($/user_id/, $/idea_content/)
+    RETURNING * `,
+    idea);
 };
 
 // user can update an idea
@@ -43,7 +51,7 @@ Ideas.update = (idea) => {
     idea_content = $/idea_content/,
     WHERE id = $/id/
     RETURNING * `,
-    [idea],
+    idea,
   );
 };
 
