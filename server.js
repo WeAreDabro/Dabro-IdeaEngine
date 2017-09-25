@@ -1,4 +1,5 @@
 // requiring all the needed dependencies on which the server will run
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const Twit = require('twit');
@@ -39,12 +40,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const igenioRoutes = require('./routes/igenio-route');
 
-app.use('/api/ideas', igenioRoutes);
+app.use('/api/ideas', igenioRoutes, errorHandler);
 
 app.get('/api/twitter', (req, res) => {
   const T = new Twit({
-    consumer_key: 'mxSDdMz8vgTupvJpqCuqNXFoZ',
-    consumer_secret: 'wxkc1Ss75FZ0nsnXmNoeCy37PcSHTxmTWDfMcUfFRqBw1smVz7',
+    consumer_key: process.env.TWITTER_CONSUMER_KEY,
+    consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
     app_only_auth: true,
   });
 
