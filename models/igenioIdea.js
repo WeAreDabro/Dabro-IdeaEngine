@@ -39,11 +39,10 @@ Ideas.update = (idea) => {
   return dbi.one(
     `UPDATE ideas
     SET
-    idea_id = $/idea_id/,
-    idea_content = $/idea_content/,
+    idea_content = $/idea_content/
     WHERE id = $/id/
     RETURNING * `,
-    [idea],
+    idea,
   );
 };
 
