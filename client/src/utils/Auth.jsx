@@ -16,11 +16,11 @@ export default function Auth(Component1, Component2) {
     componentWillMount() {
       // attempt to check if user is logged in.
       authService.authenticate((err, user) => {
-        if (Component1 && !Component2 || err) {
+        if (err) {
+          console.log(err);
+        } else if (Component1 && !Component2) {
           this.shouldRedirect(user);
-        }
-
-        if (Component1 && Component2) {
+        } else if (Component1 && Component2) {
           this.determineComponentToRender(user);
         }
       });
