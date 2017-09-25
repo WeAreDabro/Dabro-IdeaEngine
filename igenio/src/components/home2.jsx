@@ -5,11 +5,11 @@ import CategoryButtons from './CategoryButtons';
 class Home2 extends Component {
   render() {
     return (
-      <div>
+      <section id="home-user">
         <IdeasTab user={this.props.user}/>
 
         <CategoryButtons />
-      </div>
+      </section>
     );
   }
 }

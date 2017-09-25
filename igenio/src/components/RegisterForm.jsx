@@ -52,8 +52,7 @@ class RegisterForm extends Component{
 
   render() {
     return (
-      <div>
-        <a href="/auth/twitter"><button>Login With Twitter</button></a>
+      <section>
         <form onSubmit={this.onSubmitRegister} className="register-form">
           <input
             name="registerEmail"
@@ -81,7 +80,7 @@ class RegisterForm extends Component{
           <br />
           <button type="submit">Submit</button>
         </form>
-      </div>
+      </section>
     );
   }
 }

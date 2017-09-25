@@ -1,24 +1,72 @@
-.App {
-  text-align: center;
+/*body {
+  background-color: black;
+}*/
+
+.container-fluid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: midnightblue;
+  color: white;
+  height:  800px;
+  border: 5px dotted limegreen;
 }
 
-.App-logo {
+
+
+header {
+  background-image: url("https://media.giphy.com/media/pkVHZKcnzzkmA/giphy.gif");
+  align-self: stretch;
+  border: 4px solid orange;
+  height: 200px;
+
+}
+
+nav {
+  display: inline-flex;
+  border: 4px solid teal;
+}
+
+section {
+  align-self: stretch;
+  background-color: purple;
+  border: 4px solid white;
+  height: 20%;
+
+
+}
+
+#idea-tab {
+  background-color: orange;
+  text-align: center;
+  width: 50%;
+}
+
+textarea {
+ background-color: pink;
+ width:50%;
+ height: 40px;
+}
+
+blockquote {
+  background-color: black;
+}
+
+footer {
+  margin-top: 80px;
+  align-self: stretch;
+  justify-content: flex-end;
+  border: 4px solid limegreen;
+}
+
+/*.logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
+@keyframes igenio-logo {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+*/

@@ -5,8 +5,9 @@ import { Link } from 'react-router-dom';
 class CategoryButtons extends Component {
   render () {
     return (
+      <div>
       <button><Link to='/single-tweet'>Random Idea</Link></button>
-
+      </div>
       )
   }
 }
