@@ -2,18 +2,12 @@
   "name": "Dabro-IdeaEngine",
   "version": "1.0.0",
   "description": "General Assembly WDI NYC - Project 3. Darren, Gaby and Aemiro",
-  "main": "index.js",
-  "dependencies": {
-    "body-parser": "^1.18.1",
-    "express": "^4.15.4",
-    "express-session": "^1.15.5",
-    "method-override": "^2.3.9",
-    "morgan": "^1.8.2",
-    "pg-promise": "^6.8.0"
-  },
-  "devDependencies": {},
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "debugger": "DEBUG=*:* npm run dev"
   },
   "repository": {
     "type": "git",
@@ -25,5 +19,26 @@
   "bugs": {
     "url": "https://github.com/WeAreDabro/Dabro-IdeaEngine/issues"
   },
-  "homepage": "https://github.com/WeAreDabro/Dabro-IdeaEngine#readme"
+  "homepage": "https://github.com/WeAreDabro/Dabro-IdeaEngine#readme",
+  "devDependencies": {
+    "eslint": "^4.7.1",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.3.0"
+  },
+  "dependencies": {
+    "bcrypt-as-promised": "^1.1.0",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "jsonwebtoken": "^8.0.1",
+    "method-override": "^2.3.9",
+    "morgan": "^1.8.2",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.0",
+    "pg-promise": "^6.9.0",
+    "twit": "^2.2.9"
+  }
 }
