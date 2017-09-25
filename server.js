@@ -36,7 +36,7 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 
 // setting up static files
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 const igenioRoutes = require('./routes/igenio-route');
 
@@ -75,7 +75,7 @@ app.use(errorHandler);
 // Instead of page found, send down the react app to handle any pages.
 app.get('*', (req, res) => {
   // Send index.html file which is the entire react app.
-  res.sendFile(`${__dirname}/igenio/public/index.html`);
+  res.sendFile(`${__dirname}/client/build/index.html`);
 });
 
 // Listening on PORT
