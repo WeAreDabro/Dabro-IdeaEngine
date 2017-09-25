@@ -51,9 +51,7 @@ class LoginForm extends Component{
 
   render() {
     return (
-      <div>
-        <button><a href="/login"> Login With Twitter</a></button>
-
+      <section>
         <form onSubmit={this.onSubmitLogin} className="login-form">
           <input
             name="loginUserName"
@@ -73,7 +71,7 @@ class LoginForm extends Component{
           <br />
           <button type="submit">Submit</button>
         </form>
-      </div>
+      </section>
     );
   }
 }

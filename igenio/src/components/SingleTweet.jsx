@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import Twit from 'twit';
 // import Config from '../config';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 class SingleTweet extends Component {
@@ -32,14 +33,16 @@ class SingleTweet extends Component {
 
   render() {
     return (
-      <div>
+      <section>
 
         <blockquote>
           {this.state.tweet}
 
         <p> - {this.state.screen_name}</p>
+        <button><Link to="/">Random Idea</Link></button>
+        <button><Link to="/">Home</Link></button>
         </blockquote>
-      </div>
+      </section>
     );
   }
 }

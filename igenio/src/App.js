@@ -20,7 +20,7 @@ import authService from './utils/authService';
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="container-fluid">
         <Header />
         <Switch>
           <Route exact path="/register" component={RegisterForm} />
@@ -33,7 +33,7 @@ class App extends Component {
           <Redirect to="/" />
         </Switch>
         { /* Logout button */ }
-        <button onClick={() => authService.logout(this.props.history)}>logout</button>
+        {/*<button onClick={() => authService.logout(this.props.history)}>logout</button>*/}
         <Footer />
       </div>
     );
