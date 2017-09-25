@@ -16,6 +16,7 @@ class IdeasTab extends Component {
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleUpdate = this.handleUpdate.bind(this);
   }
 
   componentDidMount() {
@@ -39,6 +40,25 @@ class IdeasTab extends Component {
         this.renderAllIdeas();
       })
       .catch(err => console.log(err));
+  }
+
+  handleUpdate(event, id, value) {
+    if (value) {
+      // alert('your idea was posted');
+      // Stop browser from refreshing when submit button is pressed.
+      event.preventDefault();
+      // Update idea and pass the idea content in the
+      // request body.
+      axios.put(`http://localhost:3000/api/ideas/${id}`, {
+        idea_content: value,
+      })
+        .then(() => {
+          // After the new idea has been updated,
+          // get the new, updated list of ideas.
+          this.renderAllIdeas();
+        })
+        .catch(err => console.log(err));
+    }
   }
 
   handleInput(event) {
@@ -88,6 +108,7 @@ class IdeasTab extends Component {
         <IdeaList
           ideaData={this.state.apiData}
           handleDelete={this.handleDelete}
+          handleUpdate={this.handleUpdate}
         />
 
 

@@ -51,8 +51,8 @@ igenioController.create = (req, res) => {
 
 igenioController.update = (req, res) => {
   Ideas.update({
-    id: (req.body.id),
-    content: (req.body.content),
+    id: (req.params.id),
+    idea_content: (req.body.idea_content),
   })
     .then((idea) => {
       res.json({ message: 'idea updated' });
