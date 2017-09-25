@@ -11,6 +11,7 @@ class Idea extends Component {
     };
 
     this.handleInput = this.handleInput.bind(this);
+    this.handleUpdate = this.handleUpdate.bind(this);
   }
 
   // shouldComponentUpdate(nextProps, nextState) {
@@ -23,16 +24,28 @@ class Idea extends Component {
     });
   }
 
+  handleUpdate(event) {
+    console.log('handle update');
+    this.props.handleUpdate(
+      event,
+      this.props.anIdea.id,
+      this.state.ideaInput
+    );
+  }
+
   render() {
     return (
       <div>
         <span
           contentEditable={true}
           suppressContentEditableWarning={true}
+          onBlur={(e) => this.handleUpdate(e)}
           onInput={(e) => this.handleInput(e)}>
+
           {this.props.anIdea.idea_content}
+
         </span>
-        <button onClick={(e) => this.props.handleUpdate(e, this.props.anIdea.id, this.state.ideaInput)}>SAVE</button>
+
         <button onClick={this.props.handleDelete}>X</button>
       </div>
     );

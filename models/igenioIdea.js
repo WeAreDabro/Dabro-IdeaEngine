@@ -11,7 +11,7 @@ const Ideas = {};
 Ideas.findAll = () => {
   return dbi.query(
     `
-    SELECT * FROM ideas`,
+    SELECT * FROM ideas ORDER BY date_created DESC`,
   );
 };
 
