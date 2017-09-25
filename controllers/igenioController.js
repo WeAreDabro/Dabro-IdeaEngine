@@ -6,17 +6,17 @@ const igenioController = {};
 // setting up the controller which handles
 // all the requests made by the user
 igenioController.index = (req, res) => {
-  Ideas.findAll()
+  Ideas.findAll(req.params.id)
     .then((ideas) => {
       res.json({
         message: 'ok',
         data: { ideas },
       });
-      console.log(ideas)
+      console.log(ideas);
     })
     .catch((err) => {
       console.log(err);
-      res.status(400).json({message: '400', err});
+      res.status(400).json({ message: '400', err });
     });
 };
 

@@ -49,7 +49,7 @@ class IdeasTab extends Component {
       event.preventDefault();
       // Update idea and pass the idea content in the
       // request body.
-      axios.put(`http://localhost:3000/api/ideas/${id}`, {
+      axios.put(`/api/ideas/${id}`, {
         idea_content: value,
       })
         .then(() => {
@@ -73,7 +73,7 @@ class IdeasTab extends Component {
     // Stop browser from refreshing when submit button is pressed.
     e.preventDefault();
 
-    axios.delete(`http://localhost:3000/api/ideas/${id}`)
+    axios.delete(`/api/ideas/${id}`)
       .then(() => {
         // After the idea has been deleted,
         // get the new, updated list of ideas.
@@ -83,9 +83,10 @@ class IdeasTab extends Component {
   }
 
   renderAllIdeas() {
+    const { user_id } = this.props.user;
     // This sets ideaData in state to all ideas from our ajax call to our server,
     // which will in turn, cause the ideaList component to render with our list of ideas.
-    axios.get('/api/ideas')
+    axios.get(`/api/ideas/${user_id}`)
       .then((res) => {
         console.log(res.data.data.ideas);
         this.setState({

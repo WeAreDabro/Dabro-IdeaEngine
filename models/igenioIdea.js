@@ -8,17 +8,19 @@ const dbi = require('../config/configdb');
 const Ideas = {};
 
 // user can select all ideas
-Ideas.findAll = () => {
+Ideas.findAll = (id) => {
   return dbi.query(
     `
-    SELECT * FROM ideas ORDER BY date_created DESC`,
+    SELECT * FROM ideas
+    WHERE user_id = ${id}
+    ORDER BY date_created DESC`,
   );
 };
 
 // user can search for idea by ID
 Ideas.findById = (id) => {
   return dbi.oneOrNone(
-    `SELECT FROM ideas
+    `SELECT * FROM ideas
     WHERE id = $1`,
     [id],
   );
