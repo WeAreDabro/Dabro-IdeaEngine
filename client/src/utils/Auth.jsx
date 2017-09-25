@@ -20,8 +20,7 @@ export default function Auth(Component1, Component2) {
         console.log('user', user);
         if (err) {
           this.determineComponentToRender(null);
-        }
-        if (Component1 && !Component2) {
+        } else if (Component1 && !Component2) {
           this.shouldRedirect(user);
         } else if (Component1 && Component2) {
           this.determineComponentToRender(user);

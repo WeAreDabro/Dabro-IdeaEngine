@@ -83,7 +83,6 @@ class IdeasTab extends Component {
   }
 
   renderAllIdeas() {
-    console.log(this.props.user.user_id);
     // This sets ideaData in state to all ideas from our ajax call to our server,
     // which will in turn, cause the ideaList component to render with our list of ideas.
     axios.get(`/api/ideas/${this.props.user.user_id}`)
