@@ -87,7 +87,7 @@ class IdeasTab extends Component {
     // which will in turn, cause the ideaList component to render with our list of ideas.
     axios.get(`/api/ideas/${this.props.user.user_id}`)
       .then((res) => {
-        console.log(res.data.data.ideas);
+        // console.log(res.data.data.ideas);
         this.setState({
           apiData: res.data.data.ideas, // we are setting ideaData to res.data.data
         });

@@ -15,7 +15,6 @@ options.jsonWebTokenOptions = {
 };
 
 const jwtStrategy = new Strategy(options, (payload, done) => {
-  console.log(payload);
   const { user_id, email, username } = payload;
 
   return User.findOne('user_id', user_id)
@@ -29,7 +28,6 @@ const jwtStrategy = new Strategy(options, (payload, done) => {
       });
     })
     .catch((err) => {
-      console.error(err);
       return done(err);
     });
 });

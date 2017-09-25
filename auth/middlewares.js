@@ -5,7 +5,6 @@ const Pass = require('./pass');
 
 
 module.exports.handleAuthentication = (req, res) => {
-  console.log(req);
   res.json({
     message: 'user is logged in.',
     user: {
