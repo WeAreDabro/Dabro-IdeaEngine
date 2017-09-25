@@ -6,7 +6,7 @@ export default {
   authenticate(callback) {
     // give token to server and check if the token is valid.
     axios({
-      url: 'https://localhost:3000/auth',
+      url: '/auth',
       method: 'get',
       headers: { Authorization: `Bearer ${tokenService.getToken()}` },
     })
@@ -17,7 +17,7 @@ export default {
   register(user, callback) {
   // create user and redirect to login page.
     axios({
-      url: 'https://localhost:3000/auth/register',
+      url: '/auth/register',
       method: 'post',
       data: user,
     })
@@ -31,7 +31,7 @@ export default {
     // recieve token from server, if credientials match,
     // and then redirect to profile page.
     axios({
-      url: 'https://localhost:3000/auth/login',
+      url: '/auth/login',
       method: 'post',
       data: user,
     })

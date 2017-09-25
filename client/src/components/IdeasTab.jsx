@@ -30,7 +30,7 @@ class IdeasTab extends Component {
     event.preventDefault();
     // Create a new idea and pass the idea content in the
     // request body.
-    axios.post('https://localhost:3000/api/ideas', {
+    axios.post('/api/ideas', {
       user_id: this.props.user.user_id,
       idea_content: this.state.ideaInput,
     })
@@ -85,7 +85,7 @@ class IdeasTab extends Component {
   renderAllIdeas() {
     // This sets ideaData in state to all ideas from our ajax call to our server,
     // which will in turn, cause the ideaList component to render with our list of ideas.
-    axios.get('https://localhost:3000/api/ideas')
+    axios.get('/api/ideas')
       .then((res) => {
         console.log(res.data.data.ideas);
         this.setState({
