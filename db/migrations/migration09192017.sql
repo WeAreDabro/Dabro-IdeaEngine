@@ -1,5 +1,3 @@
-\c idea_engine_project;
-
 DROP TABLE IF EXISTS ideas;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS categories;

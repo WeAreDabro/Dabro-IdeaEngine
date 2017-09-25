@@ -1,5 +1,3 @@
-\c idea_engine_project;
-
 INSERT INTO users (username, email, password)
 VALUES
 ('user1', 'user1@email.com', 'password1'),
