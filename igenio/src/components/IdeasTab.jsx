@@ -98,6 +98,9 @@ class IdeasTab extends Component {
   render() {
     return (
       <div id="idea-tab">
+        <div>
+        <h1>🤔 What's your idea?💡 </h1>
+        </div>
         <div id="idea-input">
         <IdeaForm
           handleInput={this.handleInput}
@@ -106,13 +109,11 @@ class IdeasTab extends Component {
         />
         </div>
 
-        <div id="idea-list">
         <IdeaList
           ideaData={this.state.apiData}
           handleDelete={this.handleDelete}
           handleUpdate={this.handleUpdate}
         />
-        </div>
 
       </div>
     );
