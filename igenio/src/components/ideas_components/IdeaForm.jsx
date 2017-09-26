@@ -17,7 +17,7 @@ class IdeaForm extends Component {
       </textarea>
       <br/>
 
-      <button>Post</button>
+      <button id='color'>Post</button>
       </form>
     )
   }

@@ -55,6 +55,7 @@ class RegisterForm extends Component{
       <section>
         <form onSubmit={this.onSubmitRegister} className="register-form">
           <input
+            id='email'
             name="registerEmail"
             type="email"
             placeholder="Your Email"
@@ -63,6 +64,7 @@ class RegisterForm extends Component{
           />
           <br />
           <input
+            id="username"
             name="registerUserName"
             type="text"
             placeholder="Your Username"
@@ -71,6 +73,7 @@ class RegisterForm extends Component{
           />
           <br />
           <input
+            id="password"
             name="registerPassword"
             type="password"
             placeholder="Your Password"
@@ -78,7 +81,7 @@ class RegisterForm extends Component{
             onChange={this.handleInput}
           />
           <br />
-          <button type="submit">Submit</button>
+          <button id="circle" type="submit">Submit</button>
         </form>
       </section>
     );

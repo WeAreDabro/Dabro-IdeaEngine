@@ -54,6 +54,7 @@ class LoginForm extends Component{
       <section>
         <form onSubmit={this.onSubmitLogin} className="login-form">
           <input
+            id="loginUserName"
             name="loginUserName"
             type="text"
             placeholder="Your Username"
@@ -62,6 +63,7 @@ class LoginForm extends Component{
           />
           <br />
           <input
+            id="loginPassword"
             name="loginPassword"
             type="password"
             placeholder="Your Password"
@@ -69,7 +71,7 @@ class LoginForm extends Component{
             onChange={this.handleInput}
           />
           <br />
-          <button type="submit">Submit</button>
+          <button id="fade" type="submit">Submit</button>
         </form>
       </section>
     );
