@@ -24,9 +24,10 @@ class SingleTweet extends Component {
           tweet: item.text,
           screen_name: item.user.screen_name,
         })
+      })
         .catch(err => console.log(err));
       // console.log(JSON.stringify(res.data.data.statuses[0].text))
-      });
+
   }
 
 //   shouldComponentUpdate(nextTweet, nextState) {
