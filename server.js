@@ -43,21 +43,29 @@ const igenioRoutes = require('./routes/igenio-route');
 app.use('/api/ideas', igenioRoutes, errorHandler);
 
 app.get('/api/twitter', (req, res) => {
-  const T = new Twit({
-    consumer_key: process.env.TWITTER_CONSUMER_KEY,
-    consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-    app_only_auth: true,
-  });
-
-  const params = { q: '"somebody should" OR "someone should" AND "make a" -"liberals" -"snowflakes" -"blocklist" -"account" -"cash app" since:2017-01-01 exclude:replies exclude:retweets', count: 50 };
-
-  const tweetData = (err, data, response) => {
-    res.json({
-      data,
+  if (process.env.TWITTER_CONSUMER_KEY &&
+      process.env.TWITTER_CONSUMER_SECRET) {
+    const T = new Twit({
+      consumer_key: process.env.TWITTER_CONSUMER_KEY,
+      consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+      app_only_auth: true,
     });
-  };
 
-  T.get('search/tweets', params, tweetData);
+    const params = { q: '"somebody should" OR "someone should" AND "make a" -"liberals" -"snowflakes" -"blocklist" -"account" -"cash app" since:2017-01-01 exclude:replies exclude:retweets', count: 50 };
+
+    const tweetData = (err, data, response) => {
+      res.json({
+        data,
+      });
+    };
+
+    T.get('search/tweets', params, tweetData);
+  } else {
+    res.json({
+      message: `Permission denied to use this feature offline.
+                Feature only available through live site at https://igenio-dabro.herokuapp.com/`,
+    });
+  }
 });
 
 // Igenio API routes to use when needed
