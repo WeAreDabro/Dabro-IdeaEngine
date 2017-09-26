@@ -16,13 +16,15 @@ class SingleTweet extends Component {
   componentDidMount() {
     axios.get('/api/twitter')
       .then((res) => {
+        console.log(res.data);
         const tweetArr = res.data.data.statuses;
         const item = tweetArr[Math.floor(Math.random() * tweetArr.length)];
         console.log(item);
         this.setState({
           tweet: item.text,
           screen_name: item.user.screen_name,
-        });
+        })
+        .catch(err => console.log(err));
       // console.log(JSON.stringify(res.data.data.statuses[0].text))
       });
   }
@@ -39,8 +41,8 @@ class SingleTweet extends Component {
           {this.state.tweet}
 
         <p> - {this.state.screen_name}</p>
-        <button><Link to="/">Random Idea</Link></button>
-        <button><Link to="/">Home</Link></button>
+        <button id="buttonST"><Link to="/">Random Idea</Link></button>
+        <button id="grow"><Link to="/">Home</Link></button>
         </blockquote>
       </section>
     );

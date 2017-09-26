@@ -35,7 +35,9 @@ class Idea extends Component {
 
   render() {
     return (
+
       <div>
+
         <span
           contentEditable={true}
           suppressContentEditableWarning={true}

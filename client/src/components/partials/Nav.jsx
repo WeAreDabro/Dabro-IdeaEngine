@@ -10,8 +10,20 @@ import authService from '../../utils/authService';
 class Nav extends Component {
   render() {
     return (
+      <nav>
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li> <button onClick={() => authService.logout(this.props.history)}>logout</button></li>
+        </ul>
+      </nav>
 
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    );
+  };
+}
+
+export default withRouter(Nav);
+
+      { /* <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <a className="navbar-brand" href="/">IGENIO</a>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
@@ -23,16 +35,4 @@ class Nav extends Component {
 
     </div>
   </div>
-</nav>
-    );
-  };
-}
-
-export default withRouter(Nav);
-
-{/* <nav>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li> <button onClick={() => authService.logout(this.props.history)}>logout</button></li>
-        </ul>
-      </nav> */}
+</nav> */ }

@@ -6,7 +6,7 @@ class CategoryButtons extends Component {
   render () {
     return (
       <div>
-      <button><Link to='/single-tweet'>Random Idea</Link></button>
+      <button id= "buttonRandom"><Link to='/single-tweet'>Random Idea</Link></button>
       </div>
       )
   }
