@@ -20,7 +20,7 @@ passport.use(jwt);
 // acquiring PORT & selecting the environment
 // change port number to 3002 to put conflicts with the React server,
 // being on the same port.
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3001;
 
 // logging the dependencies
 // setting up logger
